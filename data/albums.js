@@ -1,6 +1,3171 @@
-// Base de Dados dos Álbuns da Copa do Mundo (2010, 2014, 2018, 2022, 2026)
+// Base de Dados dos Álbuns da Copa do Mundo
 
 export const DEFAULT_ALBUMS = [
+  {
+    "id": "2006",
+    "year": 2006,
+    "title": "Copa do Mundo 2006",
+    "host": "Alemanha",
+    "totalStickers": 597,
+    "coverColor": "linear-gradient(135deg, #1E3A8A, #1E1B4B)",
+    "sections": [
+      {
+        "name": "ABERTURA",
+        "items": [
+          {
+            "number": "0",
+            "name": "Stamp Panini Calciatori",
+            "section": "ABERTURA"
+          },
+          {
+            "number": "1",
+            "name": "Troféu FIFA (FOIL)",
+            "section": "ABERTURA"
+          },
+          {
+            "number": "2",
+            "name": "Mascote oficial (FOIL)",
+            "section": "ABERTURA"
+          },
+          {
+            "number": "3",
+            "name": "Emblema oficial (FOIL)",
+            "section": "ABERTURA"
+          },
+          {
+            "number": "4",
+            "name": "Poster oficial (FOIL)",
+            "section": "ABERTURA"
+          }
+        ]
+      },
+      {
+        "name": "ESTÁDIOS",
+        "items": [
+          {
+            "number": "5",
+            "name": "Hamburgo",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "6",
+            "name": "Hannover",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "7",
+            "name": "Berlim (Olympiastadion)",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "8",
+            "name": "Gelsenkirchen",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "9",
+            "name": "Dortmund",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "10",
+            "name": "Leipzig (Zentralstadion)",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "11",
+            "name": "Köln",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "12",
+            "name": "Frankfurt",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "13",
+            "name": "Kaiserslautern (Fritz-Walter-Stadion)",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "14",
+            "name": "Nürnberg (Franken-Stadion)",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "15",
+            "name": "Stuttgart (Gottlieb-Daimler-Stadion)",
+            "section": "ESTÁDIOS"
+          },
+          {
+            "number": "16",
+            "name": "München (FIFA WM-Stadion)",
+            "section": "ESTÁDIOS"
+          }
+        ]
+      },
+      {
+        "name": "ALEMANHA",
+        "items": [
+          {
+            "number": "17",
+            "name": "Foto do time",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "18",
+            "name": "Emblema (FOIL)",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "19",
+            "name": "Oliver Kahn",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "20",
+            "name": "Arne Friedrich",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "21",
+            "name": "Robert Huth",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "22",
+            "name": "Philipp Lahm",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "23",
+            "name": "Per Mertesacker",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "24",
+            "name": "Patrick Owomoyela",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "25",
+            "name": "Michael Ballack",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "26",
+            "name": "Tim Borowski",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "27",
+            "name": "Sebastian Deisler",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "28",
+            "name": "Fabian Ernst",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "29",
+            "name": "Torsten Frings",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "30",
+            "name": "Bernd Schneider",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "31",
+            "name": "Bastian Schweinsteiger",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "32",
+            "name": "Gerald Asamoah",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "33",
+            "name": "Miroslav Klose",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "34",
+            "name": "Kevin Kuranyi",
+            "section": "ALEMANHA"
+          },
+          {
+            "number": "35",
+            "name": "Lukas Podolski",
+            "section": "ALEMANHA"
+          }
+        ]
+      },
+      {
+        "name": "COSTA RICA",
+        "items": [
+          {
+            "number": "36",
+            "name": "Foto do time",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "37",
+            "name": "Emblema",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "38",
+            "name": "Jose Francisco Porras",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "39",
+            "name": "Jervis Drummond",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "40",
+            "name": "Leonardo Gonzalez",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "41",
+            "name": "Luis Marin",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "42",
+            "name": "Gilberto Martinez",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "43",
+            "name": "Douglas Sequeira",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "44",
+            "name": "Harold Wallace",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "45",
+            "name": "Christian Bolaños",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "46",
+            "name": "Steven Bryce",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "47",
+            "name": "Walter Centeno",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "48",
+            "name": "Carlos Hernandez",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "49",
+            "name": "Alonso Solis",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "50",
+            "name": "Jafet Soto",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "51",
+            "name": "Ronald Gomez",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "52",
+            "name": "Alvaro Saborio",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "53",
+            "name": "Paulo Wanchope",
+            "section": "COSTA RICA"
+          },
+          {
+            "number": "54",
+            "name": "Alvaro Mesen",
+            "section": "COSTA RICA"
+          }
+        ]
+      },
+      {
+        "name": "POLÔNIA",
+        "items": [
+          {
+            "number": "55",
+            "name": "Foto do time",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "56",
+            "name": "Emblema",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "57",
+            "name": "Artur Boruc",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "58",
+            "name": "Jacek Bak",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "59",
+            "name": "Marcin Baszczynski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "60",
+            "name": "Tomasz Klos",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "61",
+            "name": "Tomasz Rzasa",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "62",
+            "name": "Michal Zewlakow",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "63",
+            "name": "Kamil Kosowski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "64",
+            "name": "Jacek Krzynowek",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "65",
+            "name": "Sebastian Mila",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "66",
+            "name": "Arek Radomski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "67",
+            "name": "Euzebiusz Smolarek",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "68",
+            "name": "Radoslaw Sobolewski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "69",
+            "name": "Miroslaw Szymkowiak",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "70",
+            "name": "Tomasz Frankowski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "71",
+            "name": "Grzegorz Rasiak",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "72",
+            "name": "Maciej Zurawski",
+            "section": "POLÔNIA"
+          },
+          {
+            "number": "73",
+            "name": "Jerzy Dudek",
+            "section": "POLÔNIA"
+          }
+        ]
+      },
+      {
+        "name": "EQUADOR",
+        "items": [
+          {
+            "number": "74",
+            "name": "Foto do time",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "75",
+            "name": "Emblema",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "76",
+            "name": "Christian Mora",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "77",
+            "name": "Paul Ambrosi",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "78",
+            "name": "Marlon Ayovi",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "79",
+            "name": "Ulises De La Cruz",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "80",
+            "name": "Giovanny Espinoza",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "81",
+            "name": "Ivan Hurtado",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "82",
+            "name": "Walter Ayovi",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "83",
+            "name": "Christian Lara",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "84",
+            "name": "Edison Mendez",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "85",
+            "name": "Mario David Quiroz",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "86",
+            "name": "Neicer Reasco",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "87",
+            "name": "Edwin Tenorio",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "88",
+            "name": "Antonio Valencia",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "89",
+            "name": "Agustin Delgado",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "90",
+            "name": "Franklin Salas",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "91",
+            "name": "Carlos Tenorio",
+            "section": "EQUADOR"
+          },
+          {
+            "number": "92",
+            "name": "Edwin Villafuerte",
+            "section": "EQUADOR"
+          }
+        ]
+      },
+      {
+        "name": "INGLATERRA",
+        "items": [
+          {
+            "number": "93",
+            "name": "Foto do time",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "94",
+            "name": "Emblema",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "95",
+            "name": "Paul Robinson",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "96",
+            "name": "Sol Campbell",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "97",
+            "name": "Jamie Carragher",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "98",
+            "name": "Ashley Cole",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "99",
+            "name": "Rio Ferdinand",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "100",
+            "name": "Ledley King",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "101",
+            "name": "Gary Neville",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "102",
+            "name": "John Terry",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "103",
+            "name": "David Beckham",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "104",
+            "name": "Joe Cole",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "105",
+            "name": "Steven Gerrard",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "106",
+            "name": "Frank Lampard",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "107",
+            "name": "Shaun Wright-Phillips",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "108",
+            "name": "Peter Crouch",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "109",
+            "name": "Jermain Defoe",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "110",
+            "name": "Michael Owen",
+            "section": "INGLATERRA"
+          },
+          {
+            "number": "111",
+            "name": "Wayne Rooney",
+            "section": "INGLATERRA"
+          }
+        ]
+      },
+      {
+        "name": "PARAGUAI",
+        "items": [
+          {
+            "number": "112",
+            "name": "Foto do time",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "113",
+            "name": "Emblema",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "114",
+            "name": "Justo Villar",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "115",
+            "name": "Julio Cesar Caceres",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "116",
+            "name": "Denis Caniza",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "117",
+            "name": "Paulo Da Silva",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "118",
+            "name": "Carlos Gamarra",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "119",
+            "name": "Jorge Nuñez",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "120",
+            "name": "Roberto Acuña",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "121",
+            "name": "Edgar Barreto",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "122",
+            "name": "Julio Dos Santos",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "123",
+            "name": "Julio Cesar Enciso",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "124",
+            "name": "Diego Gavilan",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "125",
+            "name": "Carlos Humberto Paredes",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "126",
+            "name": "Jose Cardozo",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "127",
+            "name": "Salvador Cabanas",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "128",
+            "name": "Nelson Cuevas",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "129",
+            "name": "Roque Santa Cruz",
+            "section": "PARAGUAI"
+          },
+          {
+            "number": "130",
+            "name": "Nelson Valdez",
+            "section": "PARAGUAI"
+          }
+        ]
+      },
+      {
+        "name": "TRINIDAD E TOBAGO",
+        "items": [
+          {
+            "number": "131",
+            "name": "Foto do time",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "132",
+            "name": "Emblema",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "133",
+            "name": "Kelvin Jack",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "134",
+            "name": "Marvin Andrews",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "135",
+            "name": "Avery John",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "136",
+            "name": "Ian Cox",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "137",
+            "name": "Dennis Lawrence",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "138",
+            "name": "Brent Sancho",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "139",
+            "name": "Christopher Birchall",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "140",
+            "name": "Carlos Edwards",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "141",
+            "name": "Kenwyne Jones",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "142",
+            "name": "Russell Latapy",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "143",
+            "name": "Silvio Spann",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "144",
+            "name": "Densill Theobald",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "145",
+            "name": "Cornell Glenn",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "146",
+            "name": "Jason Scotland",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "147",
+            "name": "Stern John",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "148",
+            "name": "Dwight Yorke",
+            "section": "TRINIDAD E TOBAGO"
+          },
+          {
+            "number": "149",
+            "name": "Shaka Hislop",
+            "section": "TRINIDAD E TOBAGO"
+          }
+        ]
+      },
+      {
+        "name": "SUÉCIA",
+        "items": [
+          {
+            "number": "150",
+            "name": "Foto do time",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "151",
+            "name": "Emblema",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "152",
+            "name": "Andreas Isaksson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "153",
+            "name": "Christoffer Andersson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "154",
+            "name": "Erik Edman",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "155",
+            "name": "Teddy Lucic",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "156",
+            "name": "Olof Mellberg",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "157",
+            "name": "Alexander Östlund",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "158",
+            "name": "Niclas Alexandersson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "159",
+            "name": "Kim Källström",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "160",
+            "name": "Tobias Linderoth",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "161",
+            "name": "Fredrik Ljungberg",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "162",
+            "name": "Anders Svensson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "163",
+            "name": "Christian Wilhelmsson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "164",
+            "name": "Johan Elmander",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "165",
+            "name": "Marcus Allbäck",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "166",
+            "name": "Zlatan Ibrahimovic",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "167",
+            "name": "Mattias Jonson",
+            "section": "SUÉCIA"
+          },
+          {
+            "number": "168",
+            "name": "Henrik Larsson",
+            "section": "SUÉCIA"
+          }
+        ]
+      },
+      {
+        "name": "ARGENTINA",
+        "items": [
+          {
+            "number": "169",
+            "name": "Foto do time",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "170",
+            "name": "Emblema",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "171",
+            "name": "Roberto Abbondanzieri",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "172",
+            "name": "Roberto Fabian Ayala",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "173",
+            "name": "Fabricio Coloccini",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "174",
+            "name": "Gabriel Heinze",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "175",
+            "name": "Walter Samuel",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "176",
+            "name": "Javier Zanetti",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "177",
+            "name": "Pablo Aimar",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "178",
+            "name": "Esteban Cambiasso",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "179",
+            "name": "Andres Nicolas D'Alessandro",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "180",
+            "name": "Javier Mascherano",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "181",
+            "name": "Juan Roman Riquelme",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "182",
+            "name": "Juan Pablo Sorin",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "183",
+            "name": "Juan Sebastian Veron",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "184",
+            "name": "Hernan Crespo",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "185",
+            "name": "Lionel Messi",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "186",
+            "name": "Javier Saviola",
+            "section": "ARGENTINA"
+          },
+          {
+            "number": "187",
+            "name": "Carlos Tevez",
+            "section": "ARGENTINA"
+          }
+        ]
+      },
+      {
+        "name": "COSTA DO MARFIM",
+        "items": [
+          {
+            "number": "188",
+            "name": "Foto do time",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "189",
+            "name": "Emblema",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "190",
+            "name": "Jean-Jacques Tizie",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "191",
+            "name": "Arthur Boka",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "192",
+            "name": "Cyril Domoraud",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "193",
+            "name": "Emmanuel Eboue",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "194",
+            "name": "Blaise Kouassi",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "195",
+            "name": "Kolo Toure",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "196",
+            "name": "Marco Andre Zoro",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "197",
+            "name": "Abdoulaye Djire",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "198",
+            "name": "Bonaventure Kalou",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "199",
+            "name": "Abdoulaye Meite",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "200",
+            "name": "Siaka Tiene",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "201",
+            "name": "Gilles Yapi Yapo",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "202",
+            "name": "Didier Zokora",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "203",
+            "name": "Kanga Akale",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "204",
+            "name": "Aruna Dindane",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "205",
+            "name": "Didier Drogba",
+            "section": "COSTA DO MARFIM"
+          },
+          {
+            "number": "206",
+            "name": "Arouna Kone",
+            "section": "COSTA DO MARFIM"
+          }
+        ]
+      },
+      {
+        "name": "SÉRVIA (SCG)",
+        "items": [
+          {
+            "number": "207",
+            "name": "Foto do time",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "208",
+            "name": "Emblema",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "209",
+            "name": "Dragoslav Jevric",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "210",
+            "name": "Ivica Dragutinovic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "211",
+            "name": "Goran Gavrancic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "212",
+            "name": "Mladen Krstajic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "213",
+            "name": "Nemanja Vidic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "214",
+            "name": "Ognjen Koroman",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "215",
+            "name": "Predrag Djordjevic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "216",
+            "name": "Igor Duljaj",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "217",
+            "name": "Sasa Ilic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "218",
+            "name": "Dragan Mladenovic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "219",
+            "name": "Albert Nadj",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "220",
+            "name": "Dejan Stankovic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "221",
+            "name": "Zvonimir Vukic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "222",
+            "name": "Mateja Kezman",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "223",
+            "name": "Danijel Ljuboja",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "224",
+            "name": "Savo Milosevic",
+            "section": "SÉRVIA (SCG)"
+          },
+          {
+            "number": "225",
+            "name": "Nikola Zigic",
+            "section": "SÉRVIA (SCG)"
+          }
+        ]
+      },
+      {
+        "name": "HOLANDA",
+        "items": [
+          {
+            "number": "226",
+            "name": "Foto do time",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "227",
+            "name": "Emblema",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "228",
+            "name": "Edwin van der Sar",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "229",
+            "name": "Khalid Boulahrouz",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "230",
+            "name": "Jan Kromkamp",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "231",
+            "name": "Joris Mathijsen",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "232",
+            "name": "Andre Ooijer",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "233",
+            "name": "Barry Opdam",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "234",
+            "name": "Giovanni van Bronckhorst",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "235",
+            "name": "Phillip Cocu",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "236",
+            "name": "Denny Landzaat",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "237",
+            "name": "Mark van Bommel",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "238",
+            "name": "Rafael van der Vaart",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "239",
+            "name": "Dirk Kuyt",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "240",
+            "name": "Arjen Robben",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "241",
+            "name": "Ruud van Nistelrooy",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "242",
+            "name": "Robin van Persie",
+            "section": "HOLANDA"
+          },
+          {
+            "number": "243",
+            "name": "Jan Vennegoor Of Hesselink",
+            "section": "HOLANDA"
+          }
+        ]
+      },
+      {
+        "name": "MÉXICO",
+        "items": [
+          {
+            "number": "244",
+            "name": "Foto do time",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "245",
+            "name": "Emblema",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "246",
+            "name": "Oswaldo Sanchez",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "247",
+            "name": "Rafael Marquez",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "248",
+            "name": "Mario Mendez",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "249",
+            "name": "Pavel Pardo",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "250",
+            "name": "Francisco Rodriguez",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "251",
+            "name": "Carlos Salcido",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "252",
+            "name": "Guillermo Franco",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "253",
+            "name": "Jaime Lozano",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "254",
+            "name": "Ramon Morales",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "255",
+            "name": "Ricardo Osorio",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "256",
+            "name": "Luis Perez",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "257",
+            "name": "Gerardo Torrado",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "258",
+            "name": "Zinha",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "259",
+            "name": "Cuauhtemoc Blanco",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "260",
+            "name": "Jared Borgetti",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "261",
+            "name": "Omar Bravo",
+            "section": "MÉXICO"
+          },
+          {
+            "number": "262",
+            "name": "Francisco Fonseca",
+            "section": "MÉXICO"
+          }
+        ]
+      },
+      {
+        "name": "IRÃ",
+        "items": [
+          {
+            "number": "263",
+            "name": "Foto do time",
+            "section": "IRÃ"
+          },
+          {
+            "number": "264",
+            "name": "Emblema",
+            "section": "IRÃ"
+          },
+          {
+            "number": "265",
+            "name": "Ebrahim Mirzapour",
+            "section": "IRÃ"
+          },
+          {
+            "number": "266",
+            "name": "Sayed Alavi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "267",
+            "name": "Yaha Golmohammadi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "268",
+            "name": "Hossein Kaebi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "269",
+            "name": "Javad Nekounam",
+            "section": "IRÃ"
+          },
+          {
+            "number": "270",
+            "name": "Rahman Rezaei",
+            "section": "IRÃ"
+          },
+          {
+            "number": "271",
+            "name": "Ali Karimi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "272",
+            "name": "Javad Kazemeyan",
+            "section": "IRÃ"
+          },
+          {
+            "number": "273",
+            "name": "Mehdi Mahdavikia",
+            "section": "IRÃ"
+          },
+          {
+            "number": "274",
+            "name": "Eman Mobali",
+            "section": "IRÃ"
+          },
+          {
+            "number": "275",
+            "name": "Moharram Navidkia",
+            "section": "IRÃ"
+          },
+          {
+            "number": "276",
+            "name": "Mohammad Nosrati",
+            "section": "IRÃ"
+          },
+          {
+            "number": "277",
+            "name": "Ferydoon Zandi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "278",
+            "name": "Ali Daei",
+            "section": "IRÃ"
+          },
+          {
+            "number": "279",
+            "name": "Vahid Hashemian",
+            "section": "IRÃ"
+          },
+          {
+            "number": "280",
+            "name": "Alireza Vahedi",
+            "section": "IRÃ"
+          },
+          {
+            "number": "281",
+            "name": "Mehdi Rahmati",
+            "section": "IRÃ"
+          }
+        ]
+      },
+      {
+        "name": "PORTUGAL",
+        "items": [
+          {
+            "number": "282",
+            "name": "Foto do time",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "283",
+            "name": "Emblema",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "284",
+            "name": "Ricardo",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "285",
+            "name": "Jorge Andrade",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "286",
+            "name": "Marco Caneira",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "287",
+            "name": "Miguel",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "288",
+            "name": "Nuno Valente",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "289",
+            "name": "Paulo Ferreira",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "290",
+            "name": "Ricardo Carvalho",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "291",
+            "name": "Costinha",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "292",
+            "name": "Deco",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "293",
+            "name": "Figo",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "294",
+            "name": "Maniche",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "295",
+            "name": "Petit",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "296",
+            "name": "Simão",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "297",
+            "name": "Tiago Mendes",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "298",
+            "name": "Cristiano Ronaldo",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "299",
+            "name": "Nuno Gomes",
+            "section": "PORTUGAL"
+          },
+          {
+            "number": "300",
+            "name": "Pauleta",
+            "section": "PORTUGAL"
+          }
+        ]
+      },
+      {
+        "name": "ANGOLA",
+        "items": [
+          {
+            "number": "301",
+            "name": "Emblema",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "302",
+            "name": "Foto do time",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "303",
+            "name": "João Ricardo / Jacinto",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "304",
+            "name": "Jamba / Lebo Lebo",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "305",
+            "name": "Loco / Delgado",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "306",
+            "name": "Andre Macanga / Edson",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "307",
+            "name": "Figuereido / Mendonça",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "308",
+            "name": "Ze Kalanga / Akwa",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "309",
+            "name": "Flavio / Love",
+            "section": "ANGOLA"
+          },
+          {
+            "number": "310",
+            "name": "Mantorras / Maurito",
+            "section": "ANGOLA"
+          }
+        ]
+      },
+      {
+        "name": "GANA",
+        "items": [
+          {
+            "number": "311",
+            "name": "Emblema",
+            "section": "GANA"
+          },
+          {
+            "number": "312",
+            "name": "Foto do time",
+            "section": "GANA"
+          },
+          {
+            "number": "313",
+            "name": "Sammy Adjei / Daniel Edusei",
+            "section": "GANA"
+          },
+          {
+            "number": "314",
+            "name": "Samuel Osei Kuffour / John Mensah",
+            "section": "GANA"
+          },
+          {
+            "number": "315",
+            "name": "John Pantsil / Emmanuel Pappoe",
+            "section": "GANA"
+          },
+          {
+            "number": "316",
+            "name": "Stephen Appiah / Godwin Attram",
+            "section": "GANA"
+          },
+          {
+            "number": "317",
+            "name": "Michael Essien / Laryea Kingston",
+            "section": "GANA"
+          },
+          {
+            "number": "318",
+            "name": "Sulley Ali Muntari / Abubakari Yakubu",
+            "section": "GANA"
+          },
+          {
+            "number": "319",
+            "name": "Matthew Amoah / Asamoah Gyan",
+            "section": "GANA"
+          },
+          {
+            "number": "320",
+            "name": "Asamoah Frimpong / George Owu",
+            "section": "GANA"
+          }
+        ]
+      },
+      {
+        "name": "ITÁLIA",
+        "items": [
+          {
+            "number": "321",
+            "name": "Foto do time",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "322",
+            "name": "Emblema",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "323",
+            "name": "Gianluigi Buffon",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "324",
+            "name": "Fabio Cannavaro",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "325",
+            "name": "Marco Materazzi",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "326",
+            "name": "Alessandro Nesta",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "327",
+            "name": "Gianluca Zambrotta",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "328",
+            "name": "Fabio Grosso",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "329",
+            "name": "Cristian Zaccardo",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "330",
+            "name": "Mauro Camoranesi",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "331",
+            "name": "Daniele De Rossi",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "332",
+            "name": "Gennaro Gattuso",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "333",
+            "name": "Andrea Pirlo",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "334",
+            "name": "Simone Perrotta",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "335",
+            "name": "Alessandro Del Piero",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "336",
+            "name": "Alberto Gilardino",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "337",
+            "name": "Luca Toni",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "338",
+            "name": "Francesco Totti",
+            "section": "ITÁLIA"
+          },
+          {
+            "number": "339",
+            "name": "Christian Vieri",
+            "section": "ITÁLIA"
+          }
+        ]
+      },
+      {
+        "name": "EUA",
+        "items": [
+          {
+            "number": "340",
+            "name": "Foto do time",
+            "section": "EUA"
+          },
+          {
+            "number": "341",
+            "name": "Emblema",
+            "section": "EUA"
+          },
+          {
+            "number": "342",
+            "name": "Kasey Keller",
+            "section": "EUA"
+          },
+          {
+            "number": "343",
+            "name": "Gregg Berhalter",
+            "section": "EUA"
+          },
+          {
+            "number": "344",
+            "name": "Carlos Bocanegra",
+            "section": "EUA"
+          },
+          {
+            "number": "345",
+            "name": "Steve Cherundolo",
+            "section": "EUA"
+          },
+          {
+            "number": "346",
+            "name": "Frankie Hejduk",
+            "section": "EUA"
+          },
+          {
+            "number": "347",
+            "name": "Oguchi Onyewu",
+            "section": "EUA"
+          },
+          {
+            "number": "348",
+            "name": "Eddie Pope",
+            "section": "EUA"
+          },
+          {
+            "number": "349",
+            "name": "Damarcus Beasley",
+            "section": "EUA"
+          },
+          {
+            "number": "350",
+            "name": "Clint Dempsey",
+            "section": "EUA"
+          },
+          {
+            "number": "351",
+            "name": "Eddie Lewis",
+            "section": "EUA"
+          },
+          {
+            "number": "352",
+            "name": "Pablo Mastroeni",
+            "section": "EUA"
+          },
+          {
+            "number": "353",
+            "name": "Steve Ralston",
+            "section": "EUA"
+          },
+          {
+            "number": "354",
+            "name": "Claudio Reyna",
+            "section": "EUA"
+          },
+          {
+            "number": "355",
+            "name": "Landon Donovan",
+            "section": "EUA"
+          },
+          {
+            "number": "356",
+            "name": "Eddie Johnson",
+            "section": "EUA"
+          },
+          {
+            "number": "357",
+            "name": "Brian McBride",
+            "section": "EUA"
+          },
+          {
+            "number": "358",
+            "name": "Taylor Twellman",
+            "section": "EUA"
+          }
+        ]
+      },
+      {
+        "name": "REPÚBLICA TCHECA",
+        "items": [
+          {
+            "number": "359",
+            "name": "Foto do time",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "360",
+            "name": "Emblema",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "361",
+            "name": "Petr Cech",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "362",
+            "name": "Zdenek Grygera",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "363",
+            "name": "Marek Jankulovski",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "364",
+            "name": "Martin Jiranek",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "365",
+            "name": "David Rozehnal",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "366",
+            "name": "Tomas Ujfalusi",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "367",
+            "name": "Tomas Galasek",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "368",
+            "name": "Pavel Nedved",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "369",
+            "name": "Jaroslav Plasil",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "370",
+            "name": "Karel Poborsky",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "371",
+            "name": "Jan Polak",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "372",
+            "name": "Tomas Rosicky",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "373",
+            "name": "Vladimir Smicer",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "374",
+            "name": "Milan Baros",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "375",
+            "name": "Marek Heinz",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "376",
+            "name": "Jan Koller",
+            "section": "REPÚBLICA TCHECA"
+          },
+          {
+            "number": "377",
+            "name": "Vratislav Lokvenc",
+            "section": "REPÚBLICA TCHECA"
+          }
+        ]
+      },
+      {
+        "name": "BRASIL",
+        "items": [
+          {
+            "number": "378",
+            "name": "Foto do time",
+            "section": "BRASIL"
+          },
+          {
+            "number": "379",
+            "name": "Emblema (FOIL)",
+            "section": "BRASIL"
+          },
+          {
+            "number": "380",
+            "name": "Dida",
+            "section": "BRASIL"
+          },
+          {
+            "number": "381",
+            "name": "Cafu",
+            "section": "BRASIL"
+          },
+          {
+            "number": "382",
+            "name": "Cicinho",
+            "section": "BRASIL"
+          },
+          {
+            "number": "383",
+            "name": "Juan",
+            "section": "BRASIL"
+          },
+          {
+            "number": "384",
+            "name": "Lucio",
+            "section": "BRASIL"
+          },
+          {
+            "number": "385",
+            "name": "Roberto Carlos",
+            "section": "BRASIL"
+          },
+          {
+            "number": "386",
+            "name": "Roque Junior",
+            "section": "BRASIL"
+          },
+          {
+            "number": "387",
+            "name": "Emerson",
+            "section": "BRASIL"
+          },
+          {
+            "number": "388",
+            "name": "Julio Baptista",
+            "section": "BRASIL"
+          },
+          {
+            "number": "389",
+            "name": "Juninho Pernambucano",
+            "section": "BRASIL"
+          },
+          {
+            "number": "390",
+            "name": "Renato",
+            "section": "BRASIL"
+          },
+          {
+            "number": "391",
+            "name": "Ze Roberto",
+            "section": "BRASIL"
+          },
+          {
+            "number": "392",
+            "name": "Kaka",
+            "section": "BRASIL"
+          },
+          {
+            "number": "393",
+            "name": "Ronaldinho",
+            "section": "BRASIL"
+          },
+          {
+            "number": "394",
+            "name": "Adriano",
+            "section": "BRASIL"
+          },
+          {
+            "number": "395",
+            "name": "Robinho",
+            "section": "BRASIL"
+          },
+          {
+            "number": "396",
+            "name": "Ronaldo",
+            "section": "BRASIL"
+          }
+        ]
+      },
+      {
+        "name": "CROÁCIA",
+        "items": [
+          {
+            "number": "397",
+            "name": "Foto do time",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "398",
+            "name": "Emblema",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "399",
+            "name": "Tomislav Butina",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "400",
+            "name": "Robert Kovac",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "401",
+            "name": "Dario Simic",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "402",
+            "name": "Josip Simunic",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "403",
+            "name": "Stjepan Tomas",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "404",
+            "name": "Igor Tudor",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "405",
+            "name": "Marko Babic",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "406",
+            "name": "Niko Kovac",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "407",
+            "name": "Niko Kranjcar",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "408",
+            "name": "Jerko Leko",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "409",
+            "name": "Darijo Srna",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "410",
+            "name": "Jurica Vranjes",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "411",
+            "name": "Bosko Balaban",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "412",
+            "name": "Ivan Klasnic",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "413",
+            "name": "Ivica Olic",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "414",
+            "name": "Dado Prso",
+            "section": "CROÁCIA"
+          },
+          {
+            "number": "415",
+            "name": "Stipe Pletikosa",
+            "section": "CROÁCIA"
+          }
+        ]
+      },
+      {
+        "name": "AUSTRÁLIA",
+        "items": [
+          {
+            "number": "416",
+            "name": "Foto do time",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "417",
+            "name": "Emblema",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "418",
+            "name": "Mark Schwarzer",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "419",
+            "name": "Scott Chipperfield",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "420",
+            "name": "Craig Moore",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "421",
+            "name": "Lucas Neill",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "422",
+            "name": "Tony Popovic",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "423",
+            "name": "Tony Vidmar",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "424",
+            "name": "Mark Bresciano",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "425",
+            "name": "Brett Emerton",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "426",
+            "name": "Vincenzo Grella",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "427",
+            "name": "Josip Skoko",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "428",
+            "name": "Tim Cahill",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "429",
+            "name": "Archie Thompson",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "430",
+            "name": "John Aloisi",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "431",
+            "name": "Jason Culina",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "432",
+            "name": "Harry Kewell",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "433",
+            "name": "Mark Viduka",
+            "section": "AUSTRÁLIA"
+          },
+          {
+            "number": "434",
+            "name": "Zeljko Kalac",
+            "section": "AUSTRÁLIA"
+          }
+        ]
+      },
+      {
+        "name": "JAPÃO",
+        "items": [
+          {
+            "number": "435",
+            "name": "Foto do time",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "436",
+            "name": "Emblema",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "437",
+            "name": "Yoshikatsu Kawaguchi",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "438",
+            "name": "Akira Kaji",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "439",
+            "name": "Tsuneyasu Miyamoto",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "440",
+            "name": "Yuji Nakazawa",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "441",
+            "name": "Alessandro Santos",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "442",
+            "name": "Makoto Tanaka",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "443",
+            "name": "Yasuhito Endo",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "444",
+            "name": "Takashi Fukunishi",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "445",
+            "name": "Junichi Inamoto",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "446",
+            "name": "Shunsuke Nakamura",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "447",
+            "name": "Hidetoshi Nakata",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "448",
+            "name": "Mitsuo Ogasawara",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "449",
+            "name": "Masashi Oguro",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "450",
+            "name": "Takayuki Suzuki",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "451",
+            "name": "Naohiro Takahara",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "452",
+            "name": "Keiji Tamada",
+            "section": "JAPÃO"
+          },
+          {
+            "number": "453",
+            "name": "Atsushi Yanagisawa",
+            "section": "JAPÃO"
+          }
+        ]
+      },
+      {
+        "name": "FRANÇA",
+        "items": [
+          {
+            "number": "454",
+            "name": "Foto do time",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "455",
+            "name": "Emblema",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "456",
+            "name": "Fabien Barthez",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "457",
+            "name": "Jean-Alain Boumsong",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "458",
+            "name": "William Gallas",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "459",
+            "name": "Gaël Givet",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "460",
+            "name": "Willy Sagnol",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "461",
+            "name": "Lilian Thuram",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "462",
+            "name": "Vikash Dhorasoo",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "463",
+            "name": "Alou Diarra",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "464",
+            "name": "Claude Makelele",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "465",
+            "name": "Florent Malouda",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "466",
+            "name": "Patrick Vieira",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "467",
+            "name": "Zinedine Zidane",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "468",
+            "name": "Djibril Cisse",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "469",
+            "name": "Thierry Henry",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "470",
+            "name": "David Trezeguet",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "471",
+            "name": "Sylvain Wiltord",
+            "section": "FRANÇA"
+          },
+          {
+            "number": "472",
+            "name": "Gregory Coupet",
+            "section": "FRANÇA"
+          }
+        ]
+      },
+      {
+        "name": "SUÍÇA",
+        "items": [
+          {
+            "number": "473",
+            "name": "Foto do time",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "474",
+            "name": "Emblema",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "475",
+            "name": "Pascal Zuberbühler",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "476",
+            "name": "Philipp Degen",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "477",
+            "name": "Ludovic Magnin",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "478",
+            "name": "Patrick Müller",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "479",
+            "name": "Philippe Senderos",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "480",
+            "name": "Christoph Spycher",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "481",
+            "name": "Tranquillo Barnetta",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "482",
+            "name": "Ricardo Cabanas",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "483",
+            "name": "Daniel Gygax",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "484",
+            "name": "Johann Lonfat",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "485",
+            "name": "Johann Vogel",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "486",
+            "name": "Raphaël Wicky",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "487",
+            "name": "Hakan Yakin",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "488",
+            "name": "Valon Behrami",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "489",
+            "name": "Alexander Frei",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "490",
+            "name": "Marco Streller",
+            "section": "SUÍÇA"
+          },
+          {
+            "number": "491",
+            "name": "Johan Vonlanthen",
+            "section": "SUÍÇA"
+          }
+        ]
+      },
+      {
+        "name": "COREIA DO SUL",
+        "items": [
+          {
+            "number": "492",
+            "name": "Foto do time",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "493",
+            "name": "Emblema",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "494",
+            "name": "Lee Woon-Jae",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "495",
+            "name": "Park Dong-Hyuk",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "496",
+            "name": "Park Jae-Hong",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "497",
+            "name": "Choi Jin-Cheul",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "498",
+            "name": "Kim Jin-Kyu",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "499",
+            "name": "You Kyoung-Youl",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "500",
+            "name": "Lee Chun-Soo",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "501",
+            "name": "Kim Do-Heon",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "502",
+            "name": "Kim Dong-Jin",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "503",
+            "name": "Park Ji-Sung",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "504",
+            "name": "Kim Jung-Woo",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "505",
+            "name": "Kim Nam-Il",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "506",
+            "name": "Lee Young-Pyo",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "507",
+            "name": "Lee Dong-Gook",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "508",
+            "name": "Cha Du-Ri",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "509",
+            "name": "Ahn Jung-Hwan",
+            "section": "COREIA DO SUL"
+          },
+          {
+            "number": "510",
+            "name": "Chung Kyung-Ho",
+            "section": "COREIA DO SUL"
+          }
+        ]
+      },
+      {
+        "name": "TOGO",
+        "items": [
+          {
+            "number": "511",
+            "name": "Foto do time",
+            "section": "TOGO"
+          },
+          {
+            "number": "512",
+            "name": "Emblema",
+            "section": "TOGO"
+          },
+          {
+            "number": "513",
+            "name": "Kossi Agassa",
+            "section": "TOGO"
+          },
+          {
+            "number": "514",
+            "name": "Jean-Paul Abalo",
+            "section": "TOGO"
+          },
+          {
+            "number": "515",
+            "name": "Eric Akoto",
+            "section": "TOGO"
+          },
+          {
+            "number": "516",
+            "name": "Mohama Atte-Oudeyi",
+            "section": "TOGO"
+          },
+          {
+            "number": "517",
+            "name": "Emmanuel Mathias",
+            "section": "TOGO"
+          },
+          {
+            "number": "518",
+            "name": "Dare Nibombe",
+            "section": "TOGO"
+          },
+          {
+            "number": "519",
+            "name": "Junior Senaya",
+            "section": "TOGO"
+          },
+          {
+            "number": "520",
+            "name": "Massamasso Tchangai",
+            "section": "TOGO"
+          },
+          {
+            "number": "521",
+            "name": "Yao Aziawonou",
+            "section": "TOGO"
+          },
+          {
+            "number": "522",
+            "name": "Mamam Cherif-Toure",
+            "section": "TOGO"
+          },
+          {
+            "number": "523",
+            "name": "Abdel Coubadja",
+            "section": "TOGO"
+          },
+          {
+            "number": "524",
+            "name": "Jacques-Alaixys Romao",
+            "section": "TOGO"
+          },
+          {
+            "number": "525",
+            "name": "Moustapha Salifou",
+            "section": "TOGO"
+          },
+          {
+            "number": "526",
+            "name": "Robert Souliemane",
+            "section": "TOGO"
+          },
+          {
+            "number": "527",
+            "name": "Emmanuel Adebayor",
+            "section": "TOGO"
+          },
+          {
+            "number": "528",
+            "name": "Mickael Dogbe",
+            "section": "TOGO"
+          },
+          {
+            "number": "529",
+            "name": "Adekanmi Olufade",
+            "section": "TOGO"
+          }
+        ]
+      },
+      {
+        "name": "ESPANHA",
+        "items": [
+          {
+            "number": "530",
+            "name": "Foto do time",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "531",
+            "name": "Emblema",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "532",
+            "name": "Iker Casillas",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "533",
+            "name": "Asier Del Horno",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "534",
+            "name": "Carlos Marchena",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "535",
+            "name": "Pablo Ibañez",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "536",
+            "name": "Carles Puyol",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "537",
+            "name": "Michel Salgado",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "538",
+            "name": "Sergio Ramos",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "539",
+            "name": "David Albelda",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "540",
+            "name": "Ruben Baraja",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "541",
+            "name": "Vicente Rodriguez",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "542",
+            "name": "Xavi Hernandez",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "543",
+            "name": "Joaquin Sanchez",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "544",
+            "name": "Luis Garcia",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "545",
+            "name": "Raul Gonzalez",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "546",
+            "name": "Jose Antonio Reyes",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "547",
+            "name": "Fernando Morientes",
+            "section": "ESPANHA"
+          },
+          {
+            "number": "548",
+            "name": "Fernando Torres",
+            "section": "ESPANHA"
+          }
+        ]
+      },
+      {
+        "name": "UCRÂNIA",
+        "items": [
+          {
+            "number": "549",
+            "name": "Foto do time",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "550",
+            "name": "Emblema",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "551",
+            "name": "Oleksandr Shovkovskiy",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "552",
+            "name": "Serhiy Fedorov",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "553",
+            "name": "Andriy Nesmachniy",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "554",
+            "name": "Oleksandr Radchenko",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "555",
+            "name": "Andriy Rusol",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "556",
+            "name": "Vyacheslav Sviderskyi",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "557",
+            "name": "Volodymyr Yezerskyi",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "558",
+            "name": "Andriy Husin",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "559",
+            "name": "Oleh Gusev",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "560",
+            "name": "Ruslan Rotan",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "561",
+            "name": "Oleh Shelayev",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "562",
+            "name": "Anatoliy Tymoshchuk",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "563",
+            "name": "Serhiy Rebrov",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "564",
+            "name": "Oleksiy Byelik",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "565",
+            "name": "Andriy Shevchenko",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "566",
+            "name": "Andriy Vorobei",
+            "section": "UCRÂNIA"
+          },
+          {
+            "number": "567",
+            "name": "Andriy Voronin",
+            "section": "UCRÂNIA"
+          }
+        ]
+      },
+      {
+        "name": "TUNÍSIA",
+        "items": [
+          {
+            "number": "568",
+            "name": "Foto do time",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "569",
+            "name": "Emblema",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "570",
+            "name": "Ali Boumnijel",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "571",
+            "name": "Clayton",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "572",
+            "name": "Karim Hagui",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "573",
+            "name": "Radhi Jaidi",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "574",
+            "name": "Karim Saidi",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "575",
+            "name": "Hatem Trabelsi",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "576",
+            "name": "Alaeddine Yahia",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "577",
+            "name": "Slim Ben Achour",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "578",
+            "name": "Chaouki Ben Saada",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "579",
+            "name": "Adel Chadli",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "580",
+            "name": "Kaies Ghodbane",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "581",
+            "name": "Jaouhar Mnari",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "582",
+            "name": "Mehdi Nafti",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "583",
+            "name": "Haykel Guemamdia",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "584",
+            "name": "Ziad Jaziri",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "585",
+            "name": "Imed Mhadhebi",
+            "section": "TUNÍSIA"
+          },
+          {
+            "number": "586",
+            "name": "Santos",
+            "section": "TUNÍSIA"
+          }
+        ]
+      },
+      {
+        "name": "ARÁBIA SAUDITA",
+        "items": [
+          {
+            "number": "587",
+            "name": "Emblema",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "588",
+            "name": "Foto do time",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "589",
+            "name": "Mabrouk Zaid / Saheb Al Abdullha",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "590",
+            "name": "Ahmed Al Bahri / Hamad Al Montashari",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "591",
+            "name": "Naif Al Qadi / Saud Khariri",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "592",
+            "name": "Khamis Al Dossari / Ibrahim Al Shahrani",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "593",
+            "name": "Mohammad Al Shlhoub / Khaled Al Thaker",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "594",
+            "name": "Mohammed Haidar / Abdulaziz Khathran",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "595",
+            "name": "Manaf Abushgeer / Sami Al Jaber",
+            "section": "ARÁBIA SAUDITA"
+          },
+          {
+            "number": "596",
+            "name": "Talal Al Meshal / Yasser Al Qahtani",
+            "section": "ARÁBIA SAUDITA"
+          }
+        ]
+      }
+    ]
+  },
   {
     "id": "2010",
     "year": 2010,
@@ -13956,7 +17121,7 @@ export const DEFAULT_ALBUMS = [
     "year": 2026,
     "title": "Copa do Mundo 2026",
     "host": "EUA, Canadá & México",
-    "totalStickers": 980,
+    "totalStickers": 994,
     "coverColor": "linear-gradient(135deg, #0284C7, #0F172A)",
     "sections": [
       {
@@ -19106,6 +22271,81 @@ export const DEFAULT_ALBUMS = [
             "number": "PAN20",
             "name": "Alberto Quintero",
             "section": "Panamá"
+          }
+        ]
+      },
+      {
+        "name": "Coca-Cola",
+        "items": [
+          {
+            "number": "CC1",
+            "name": "Lamine Yamal",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC2",
+            "name": "Joshua Kimmich",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC3",
+            "name": "Harry Kane",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC4",
+            "name": "Santiago Giménez",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC5",
+            "name": "Joško Gvardiol",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC6",
+            "name": "Federico Valverde",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC7",
+            "name": "Jefferson Lerma",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC8",
+            "name": "Enner Valencia",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC9",
+            "name": "Gabriel Magalhães",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC10",
+            "name": "Virgil van Dijk",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC11",
+            "name": "Alphonso Davies",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC12",
+            "name": "Emiliano Martínez",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC13",
+            "name": "Raúl Jiménez",
+            "section": "Coca-Cola"
+          },
+          {
+            "number": "CC14",
+            "name": "Lautaro Martínez",
+            "section": "Coca-Cola"
           }
         ]
       }

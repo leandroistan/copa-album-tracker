@@ -9,7 +9,7 @@
   <title>Álbuns da Copa - Coleção de Figurinhas</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0F172A">
-  <link rel="stylesheet" href="style.css?v=15.0">
+  <link rel="stylesheet" href="style.css?v=21.0">
 </head>
 <body>
   <div id="app">
@@ -45,7 +45,6 @@
         <h2 class="active-album-title" id="activeAlbumTitle">Álbum</h2>
         <div class="header-actions">
           <button class="btn-icon" id="btnExportMissing" title="Exportar Figurinhas Faltantes / Repetidas">📤</button>
-          <button class="btn-icon" id="btnSalesCheck" title="Checagem de Vendas em Lote">🛒</button>
           <button class="btn-icon" id="btnAddCustom" title="Adicionar / Editar Player">+</button>
         </div>
       </header>
@@ -57,6 +56,14 @@
 
       <!-- Barra de Pesquisa e Filtros -->
       <div class="toolbar">
+        <div class="dup-mode-bar">
+          <button class="btn-dup-mode" id="btnToggleDuplicatesMode">
+            <span class="dup-mode-icon">🔁</span>
+            <span class="dup-mode-label">Modo Edição de Repetidas:</span>
+            <strong id="dupModeText">DESATIVADO</strong>
+          </button>
+        </div>
+
         <div class="search-box">
           <span class="search-icon">🔍</span>
           <input type="text" id="searchInput" class="search-input" placeholder="Buscar por jogador ou número (ex: BRA20, Estêvão, MEX1, FWC5)...">
@@ -124,49 +131,6 @@
       </div>
     </div>
 
-    <!-- Modal: Checagem de Vendas em Lote -->
-    <div class="modal-overlay" id="salesCheckModal">
-      <div class="modal-sheet" style="max-height: 90vh; display: flex; flex-direction: column;">
-        <div class="modal-header">
-          <h3 class="modal-title">🛒 Checagem de Vendas</h3>
-          <button class="btn-close">&times;</button>
-        </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px;">
-          Cole a lista de pedido no formato:<br>
-          <code>🇧🇷 BRA: 5, 9, 14</code><br>
-          <code>🇦🇷 ARG: 3, 11</code>
-        </p>
-        <textarea id="salesCheckInput" class="textarea-box" placeholder="Cole aqui a lista de figurinhas pedidas..." style="min-height: 120px; font-family: monospace; font-size: 0.82rem;"></textarea>
-        <button class="btn-primary" id="btnRunSalesCheck" style="margin-bottom: 10px;">🔍 Verificar o que eu tenho</button>
-
-        <div id="salesCheckResult" style="display:none; flex: 1; overflow-y: auto;">
-          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
-            <div id="salesCheckSummary" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;"></div>
-
-            <div id="salesCheckNormais" style="margin-bottom: 10px; display:none;">
-              <p style="font-size: 0.78rem; font-weight: 600; color: #94A3B8; margin-bottom: 4px;">⚽ Normais (nº 2–20)</p>
-              <textarea class="textarea-box sales-result-box" readonly style="min-height: 80px; font-family: monospace; font-size: 0.78rem;"></textarea>
-            </div>
-
-            <div id="salesCheckBrilhantes" style="margin-bottom: 10px; display:none;">
-              <p style="font-size: 0.78rem; font-weight: 600; color: #F59E0B; margin-bottom: 4px;">✨ Brilhantes / Escudos (nº 1)</p>
-              <textarea class="textarea-box sales-result-box" readonly style="min-height: 60px; font-family: monospace; font-size: 0.78rem;"></textarea>
-            </div>
-
-            <div id="salesCheckFWC" style="margin-bottom: 10px; display:none;">
-              <p style="font-size: 0.78rem; font-weight: 600; color: #60A5FA; margin-bottom: 4px;">🌍 FWC (Abertura / Museum)</p>
-              <textarea class="textarea-box sales-result-box" readonly style="min-height: 60px; font-family: monospace; font-size: 0.78rem;"></textarea>
-            </div>
-
-            <div id="salesCheckNone" style="display:none; font-size: 0.85rem; color: var(--text-muted); text-align: center; padding: 12px;">
-              😔 Nenhuma das figurinhas pedidas está na sua coleção.
-            </div>
-
-            <button class="btn-primary" id="btnCopySalesResult" style="background: linear-gradient(135deg, #10B981, #059669); color: white; margin-top: 4px;">📋 Copiar Resultado</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Modal: Cadastrar Novo Jogador/Cromo -->
     <div class="modal-overlay" id="customModal">
@@ -186,7 +150,7 @@
 
   </div>
 
-  <script type="module" src="app.js?v=15.0"></script>
+  <script type="module" src="app.js?v=21.0"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

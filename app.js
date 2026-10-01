@@ -14,6 +14,7 @@ class CopaAlbumApp {
     this.expandedSections = new Set();
     this.exportTab = 'missing'; // 'missing' or 'duplicates'
     this.batchMode = 'owned'; // 'owned' or 'duplicates'
+    this.duplicatesEditMode = false; // Modo Edição de Repetidas
 
     this.init();
   }
@@ -118,6 +119,11 @@ class CopaAlbumApp {
   toggleStickerOwned(albumId, stickerNum) {
     const isOwned = this.isStickerOwned(albumId, stickerNum);
     if (isOwned) {
+      if (this.duplicatesEditMode) {
+        // No Modo Edição de Repetidas, adiciona +1 repetida e NUNCA desmarca
+        this.changeDuplicateCount(albumId, stickerNum, 1);
+        return;
+      }
       const dups = this.getDuplicateCount(albumId, stickerNum);
       if (dups > 0) {
         // Remove uma repetida primeiro, mantém a figurinha marcada
@@ -127,6 +133,11 @@ class CopaAlbumApp {
         this.setStickerOwned(albumId, stickerNum, false);
       }
     } else {
+      if (this.duplicatesEditMode) {
+        // No Modo Edição de Repetidas, NÃO permite marcar figurinhas que não possui
+        this.showToast('⚠️ Desative o Modo Repetidas para marcar novas figurinhas');
+        return;
+      }
       // Não tinha: marca como possuída
       this.setStickerOwned(albumId, stickerNum, true);
     }
@@ -175,13 +186,43 @@ class CopaAlbumApp {
     this.activeAlbumId = albumId;
     this.activeFilter = 'all';
     this.searchQuery = '';
+    this.duplicatesEditMode = false;
     this.expandedSections.clear();
 
     const searchInput = document.getElementById('searchInput');
     if (searchInput) searchInput.value = '';
 
+    this.updateDuplicatesModeUI();
     this.resetFilterChips();
     this.switchScreen('album');
+  }
+
+  toggleDuplicatesMode() {
+    this.duplicatesEditMode = !this.duplicatesEditMode;
+    this.updateDuplicatesModeUI();
+    if (this.duplicatesEditMode) {
+      this.showToast('🔁 Modo Edição de Repetidas ATIVADO');
+    } else {
+      this.showToast('ℹ️ Modo Edição de Repetidas DESATIVADO');
+    }
+  }
+
+  updateDuplicatesModeUI() {
+    const btn = document.getElementById('btnToggleDuplicatesMode');
+    const textEl = document.getElementById('dupModeText');
+    const albumScreen = document.getElementById('screen-album');
+
+    if (btn && textEl) {
+      if (this.duplicatesEditMode) {
+        btn.classList.add('active');
+        textEl.textContent = 'ATIVADO';
+        if (albumScreen) albumScreen.classList.add('duplicates-mode-active');
+      } else {
+        btn.classList.remove('active');
+        textEl.textContent = 'DESATIVADO';
+        if (albumScreen) albumScreen.classList.remove('duplicates-mode-active');
+      }
+    }
   }
 
   /* Home Screen Renderer */
@@ -314,6 +355,7 @@ class CopaAlbumApp {
     if (!album) return;
 
     const q = this.searchQuery.toLowerCase().trim();
+    const isSequentialAlbum = ['2006', '2010', '2014', '2018'].includes(album.id);
 
     container.innerHTML = album.sections.map(sec => {
       let filteredItems = sec.items.filter(item => {
@@ -351,6 +393,13 @@ class CopaAlbumApp {
       const percentage = totalSecCount > 0 ? Math.round((ownedSecCount / totalSecCount) * 100) : 0;
       const isComplete = ownedSecCount === totalSecCount && totalSecCount > 0;
 
+      let rangeBadge = '';
+      if (isSequentialAlbum && sec.items.length > 0) {
+        const firstNum = sec.items[0].number;
+        const lastNum = sec.items[sec.items.length - 1].number;
+        rangeBadge = `<span class="sec-range-badge">${firstNum}–${lastNum}</span>`;
+      }
+
       const stickersGridHtml = filteredItems.map(item => {
         const isOwned = this.isStickerOwned(album.id, item.number);
         const dupCount = this.getDuplicateCount(album.id, item.number);
@@ -383,6 +432,7 @@ class CopaAlbumApp {
             <div class="accordion-header-info">
               <div class="accordion-title">
                 <span>${sec.name}</span>
+                ${rangeBadge}
                 ${isComplete ? '<span style="color:var(--accent-gold)">⭐</span>' : ''}
               </div>
               <div class="accordion-count">${ownedSecCount} / ${totalSecCount} adquiridas • Repetidas: ${dupSecCount}</div>
@@ -446,7 +496,69 @@ class CopaAlbumApp {
     if (!album) return '';
 
     let textLines = [];
-    if (type === 'missing') {
+
+    if (album.id === '2026') {
+      const isMissing = type === 'missing';
+      let totalCount = 0;
+      textLines.push(isMissing 
+        ? `📋 FIGURINHAS FALTANTES - ${album.title.toUpperCase()}`
+        : `🔁 FIGURINHAS REPETIDAS - ${album.title.toUpperCase()}`);
+      textLines.push(`Sede: ${album.host}`);
+
+      const groups = {};
+      album.sections.forEach(sec => {
+        sec.items.forEach(item => {
+          if (isMissing) {
+            const isOwned = this.isStickerOwned(album.id, item.number);
+            if (!isOwned) {
+              totalCount++;
+              const match = item.number.match(/^([A-Za-z]+)(\d+)$/);
+              let prefix = sec.name.toUpperCase();
+              let numStr = item.number;
+              if (match) {
+                prefix = match[1].toUpperCase();
+                numStr = `${parseInt(match[2], 10)}`;
+              }
+              if (!groups[prefix]) groups[prefix] = [];
+              groups[prefix].push(numStr);
+            }
+          } else {
+            const count = this.getDuplicateCount(album.id, item.number);
+            if (count > 0) {
+              totalCount += count;
+              const match = item.number.match(/^([A-Za-z]+)(\d+)$/);
+              let prefix = sec.name.toUpperCase();
+              let numStr = item.number;
+              if (match) {
+                prefix = match[1].toUpperCase();
+                const num = parseInt(match[2], 10);
+                numStr = count > 1 ? `${num} (${count}x)` : `${num}`;
+              } else {
+                numStr = count > 1 ? `${item.number} (${count}x)` : `${item.number}`;
+              }
+              if (!groups[prefix]) groups[prefix] = [];
+              groups[prefix].push(numStr);
+            }
+          }
+        });
+      });
+
+      textLines.push(isMissing 
+        ? `Total de figurinhas que faltam: ${totalCount}`
+        : `Total de figurinhas repetidas: ${totalCount}`);
+      textLines.push(`----------------------------------------`);
+
+      if (totalCount === 0) {
+        textLines.push(isMissing 
+          ? `\n🎉 PARABÉNS! Você já completou 100% das figurinhas deste álbum!`
+          : `\nNenhuma figurinha repetida registrada neste álbum.`);
+      } else {
+        textLines.push('');
+        Object.keys(groups).forEach(prefix => {
+          textLines.push(`${prefix}: ${groups[prefix].join(', ')}`);
+        });
+      }
+    } else if (type === 'missing') {
       let totalMissing = 0;
       textLines.push(`📋 FIGURINHAS FALTANTES - ${album.title.toUpperCase()}`);
       textLines.push(`Sede: ${album.host}`);
@@ -686,8 +798,8 @@ class CopaAlbumApp {
     const btnExportMissing = document.getElementById('btnExportMissing');
     if (btnExportMissing) btnExportMissing.addEventListener('click', () => this.openExportModal());
 
-    const btnSalesCheck = document.getElementById('btnSalesCheck');
-    if (btnSalesCheck) btnSalesCheck.addEventListener('click', () => this.openSalesCheckModal());
+    const btnToggleDupMode = document.getElementById('btnToggleDuplicatesMode');
+    if (btnToggleDupMode) btnToggleDupMode.addEventListener('click', () => this.toggleDuplicatesMode());
 
     const btnAddCustom = document.getElementById('btnAddCustom');
     if (btnAddCustom) btnAddCustom.addEventListener('click', () => this.openCustomModal());
@@ -699,150 +811,6 @@ class CopaAlbumApp {
         }
       });
     });
-  }
-
-  openSalesCheckModal() {
-    const modal = document.getElementById('salesCheckModal');
-    const inputArea = document.getElementById('salesCheckInput');
-    const resultDiv = document.getElementById('salesCheckResult');
-    if (!modal || !inputArea) return;
-
-    // Reset
-    inputArea.value = '';
-    resultDiv.style.display = 'none';
-    ['salesCheckNormais', 'salesCheckBrilhantes', 'salesCheckFWC', 'salesCheckNone'].forEach(id => {
-      document.getElementById(id).style.display = 'none';
-    });
-
-    modal.classList.add('active');
-
-    const btnRun = document.getElementById('btnRunSalesCheck');
-    if (btnRun) {
-      btnRun.onclick = () => this._runSalesCheck();
-    }
-  }
-
-  _parseSalesInput(text) {
-    // Cada linha: "(emoji) PREFIX: num, num, num"
-    // Ex: "🇧🇷 BRA: 5, 9, 14"  ou "SCO: 14, 18"  ou "BRA:5 9 14"
-    const result = []; // [{ prefix, numbers[] }]
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-
-    for (const line of lines) {
-      // Remove emojis/flags no início: tudo até o primeiro token de letras maiúsculas seguido de ":"
-      const match = line.match(/([A-Za-z]{2,4})\s*:\s*(.+)/);
-      if (!match) continue;
-
-      const prefix = match[1].toUpperCase();
-      const numsPart = match[2];
-      // Extrai todos os números da parte após ":"
-      const numbers = numsPart.split(/[\s,;]+/).map(n => n.trim()).filter(n => /^\d+$/.test(n)).map(Number);
-
-      if (numbers.length > 0) {
-        result.push({ prefix, numbers });
-      }
-    }
-    return result;
-  }
-
-  _isFWCPrefix(prefix) {
-    return prefix === 'FWC' || prefix === '00';
-  }
-
-  _runSalesCheck() {
-    const album = this.getActiveAlbum();
-    if (!album) return;
-
-    const inputArea = document.getElementById('salesCheckInput');
-    const resultDiv = document.getElementById('salesCheckResult');
-    const summaryEl = document.getElementById('salesCheckSummary');
-
-    const parsed = this._parseSalesInput(inputArea.value);
-    if (parsed.length === 0) {
-      this.showToast('⚠️ Nenhuma figurinha reconhecida. Verifique o formato.');
-      return;
-    }
-
-    // Acumula por categoria
-    const normais = {};   // { prefix: [num, ...] }
-    const brilhantes = {}; // { prefix: [1] }
-    const fwc = [];       // [num, ...]
-
-    let totalPedidos = 0;
-    let totalTenho = 0;
-
-    for (const { prefix, numbers } of parsed) {
-      for (const num of numbers) {
-        totalPedidos++;
-        const stickerCode = this._isFWCPrefix(prefix) ? `FWC${num}` : `${prefix}${num}`;
-
-        // Verifica se está marcado como possuído
-        if (!this.isStickerOwned(album.id, stickerCode)) continue;
-
-        totalTenho++;
-
-        if (this._isFWCPrefix(prefix)) {
-          fwc.push(num);
-        } else if (num === 1) {
-          if (!brilhantes[prefix]) brilhantes[prefix] = [];
-          brilhantes[prefix].push(num);
-        } else {
-          if (!normais[prefix]) normais[prefix] = [];
-          normais[prefix].push(num);
-        }
-      }
-    }
-
-    // Monta textos
-    const normaisLines = Object.entries(normais)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([prefix, nums]) => `${prefix}: ${nums.sort((a, b) => a - b).join(', ')}`);
-
-    const brilhantesLines = Object.entries(brilhantes)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([prefix, nums]) => `${prefix}: ${nums.join(', ')}`);
-
-    const fwcLine = fwc.length > 0 ? `FWC: ${fwc.sort((a, b) => a - b).join(', ')}` : '';
-
-    const hasAny = normaisLines.length > 0 || brilhantesLines.length > 0 || fwcLine.length > 0;
-
-    // Atualiza UI
-    summaryEl.textContent = `📊 Pedido: ${totalPedidos} figurinha(s) — Você tem: ${totalTenho}`;
-    resultDiv.style.display = 'block';
-
-    const setSection = (id, lines) => {
-      const el = document.getElementById(id);
-      const ta = el.querySelector('textarea');
-      if (lines.length > 0) {
-        el.style.display = 'block';
-        ta.value = lines.join('\n');
-      } else {
-        el.style.display = 'none';
-      }
-    };
-
-    setSection('salesCheckNormais', normaisLines);
-    setSection('salesCheckBrilhantes', brilhantesLines);
-    setSection('salesCheckFWC', fwcLine ? [fwcLine] : []);
-    document.getElementById('salesCheckNone').style.display = hasAny ? 'none' : 'block';
-
-    // Botão copiar — monta texto unificado no mesmo formato
-    const btnCopy = document.getElementById('btnCopySalesResult');
-    if (btnCopy) {
-      const fullResult = [
-        normaisLines.length > 0 ? `⚽ Normais:\n${normaisLines.join('\n')}` : '',
-        brilhantesLines.length > 0 ? `✨ Brilhantes:\n${brilhantesLines.join('\n')}` : '',
-        fwcLine ? `🌍 FWC:\n${fwcLine}` : '',
-      ].filter(s => s.length > 0).join('\n\n');
-
-      btnCopy.onclick = () => {
-        navigator.clipboard.writeText(fullResult).then(() => {
-          this.showToast('📋 Resultado copiado!');
-        }).catch(() => {
-          this.showToast('📋 Resultado copiado!');
-        });
-      };
-    }
   }
 
   openCustomModal() {

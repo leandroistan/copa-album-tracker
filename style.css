@@ -209,6 +209,47 @@ body {
 
 /* Toolbar & Filters */
 .toolbar { padding: 0 14px 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+
+/* Modo Edição de Repetidas Bar */
+.dup-mode-bar {
+  width: 100%;
+}
+
+.btn-dup-mode {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-dup-mode:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-dup-mode.active {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  border-color: #60A5FA;
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.45);
+}
+
+.btn-dup-mode.active #dupModeText {
+  color: #6EE7B7;
+  background: rgba(16, 185, 129, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(110, 231, 183, 0.4);
+}
 .search-box { position: relative; width: 100%; }
 
 .search-input {
@@ -302,6 +343,16 @@ body {
   gap: 6px;
 }
 
+.sec-range-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
 .accordion-count {
   font-size: 0.72rem;
   color: var(--text-muted);
@@ -328,24 +379,24 @@ body {
   display: block;
 }
 
-/* COMPACT STICKER GRID INSIDE ACCORDION BODY */
+/* COMPACT STICKER GRID INSIDE ACCORDION BODY (5 COLUNAS POR LINHA) */
 .sticker-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
 }
 
 .sticker-card {
   background: var(--bg-card);
   border-radius: var(--radius-sm);
-  padding: 6px 8px;
+  padding: 5px 4px;
   border: 1.5px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
   user-select: none;
-  min-height: 78px;
+  min-height: 72px;
   transition: transform 0.1s ease;
   position: relative;
 }
