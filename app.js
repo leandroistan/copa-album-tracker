@@ -498,19 +498,35 @@ class CopaAlbumApp {
     let textLines = [];
 
     if (album.id === '2026') {
-      const isMissing = type === 'missing';
+      let titleHeader = '';
+      if (type === 'missing') titleHeader = `📋 FIGURINHAS FALTANTES - ${album.title.toUpperCase()}`;
+      else if (type === 'owned') titleHeader = `✅ FIGURINHAS ADQUIRIDAS (TENHO) - ${album.title.toUpperCase()}`;
+      else titleHeader = `🔁 FIGURINHAS REPETIDAS - ${album.title.toUpperCase()}`;
+
       let totalCount = 0;
-      textLines.push(isMissing 
-        ? `📋 FIGURINHAS FALTANTES - ${album.title.toUpperCase()}`
-        : `🔁 FIGURINHAS REPETIDAS - ${album.title.toUpperCase()}`);
+      textLines.push(titleHeader);
       textLines.push(`Sede: ${album.host}`);
 
       const groups = {};
       album.sections.forEach(sec => {
         sec.items.forEach(item => {
-          if (isMissing) {
+          if (type === 'missing') {
             const isOwned = this.isStickerOwned(album.id, item.number);
             if (!isOwned) {
+              totalCount++;
+              const match = item.number.match(/^([A-Za-z]+)(\d+)$/);
+              let prefix = sec.name.toUpperCase();
+              let numStr = item.number;
+              if (match) {
+                prefix = match[1].toUpperCase();
+                numStr = `${parseInt(match[2], 10)}`;
+              }
+              if (!groups[prefix]) groups[prefix] = [];
+              groups[prefix].push(numStr);
+            }
+          } else if (type === 'owned') {
+            const isOwned = this.isStickerOwned(album.id, item.number);
+            if (isOwned) {
               totalCount++;
               const match = item.number.match(/^([A-Za-z]+)(\d+)$/);
               let prefix = sec.name.toUpperCase();
@@ -543,15 +559,25 @@ class CopaAlbumApp {
         });
       });
 
-      textLines.push(isMissing 
-        ? `Total de figurinhas que faltam: ${totalCount}`
-        : `Total de figurinhas repetidas: ${totalCount}`);
+      if (type === 'missing') {
+        textLines.push(`Total de figurinhas que faltam: ${totalCount}`);
+      } else if (type === 'owned') {
+        const totalAlbum = this.getAllStickersForAlbum(album).length;
+        const pct = totalAlbum > 0 ? Math.round((totalCount / totalAlbum) * 100) : 0;
+        textLines.push(`Total de figurinhas adquiridas: ${totalCount} de ${totalAlbum} (${pct}%)`);
+      } else {
+        textLines.push(`Total de figurinhas repetidas: ${totalCount}`);
+      }
       textLines.push(`----------------------------------------`);
 
       if (totalCount === 0) {
-        textLines.push(isMissing 
-          ? `\n🎉 PARABÉNS! Você já completou 100% das figurinhas deste álbum!`
-          : `\nNenhuma figurinha repetida registrada neste álbum.`);
+        if (type === 'missing') {
+          textLines.push(`\n🎉 PARABÉNS! Você já completou 100% das figurinhas deste álbum!`);
+        } else if (type === 'owned') {
+          textLines.push(`\nNenhuma figurinha marcada como adquirida neste álbum.`);
+        } else {
+          textLines.push(`\nNenhuma figurinha repetida registrada neste álbum.`);
+        }
       } else {
         textLines.push('');
         Object.keys(groups).forEach(prefix => {
@@ -582,6 +608,41 @@ class CopaAlbumApp {
       if (totalMissing === 0) {
         textLines.push(`\n🎉 PARABÉNS! Você já completou 100% das figurinhas deste álbum!`);
       } else {
+        textLines.push(sectionsContent.join('\n'));
+      }
+    } else if (type === 'owned') {
+      let totalOwned = 0;
+      textLines.push(`✅ FIGURINHAS ADQUIRIDAS (TENHO) - ${album.title.toUpperCase()}`);
+      textLines.push(`Sede: ${album.host}`);
+
+      const allOwnedNums = [];
+      let sectionsContent = [];
+      album.sections.forEach(sec => {
+        const ownedInSec = sec.items.filter(item => this.isStickerOwned(album.id, item.number));
+        if (ownedInSec.length > 0) {
+          totalOwned += ownedInSec.length;
+          let secLines = [];
+          secLines.push(`\n[${sec.name}] (Possui ${ownedInSec.length})`);
+          ownedInSec.forEach(item => {
+            allOwnedNums.push(item.number);
+            secLines.push(`• ${item.number} - ${item.name}`);
+          });
+          sectionsContent.push(secLines.join('\n'));
+        }
+      });
+
+      const totalAlbum = this.getAllStickersForAlbum(album).length;
+      const pct = totalAlbum > 0 ? Math.round((totalOwned / totalAlbum) * 100) : 0;
+      textLines.push(`Total de figurinhas adquiridas: ${totalOwned} de ${totalAlbum} (${pct}%)`);
+      textLines.push(`----------------------------------------`);
+      if (totalOwned === 0) {
+        textLines.push(`\nNenhuma figurinha marcada como adquirida neste álbum.`);
+      } else {
+        if (allOwnedNums.length > 0) {
+          textLines.push(`\n🔢 NÚMEROS ADQUIRIDOS:`);
+          textLines.push(allOwnedNums.join(', '));
+          textLines.push(`\n----------------------------------------`);
+        }
         textLines.push(sectionsContent.join('\n'));
       }
     } else {
@@ -623,6 +684,7 @@ class CopaAlbumApp {
     const modal = document.getElementById('exportModal');
     const textarea = document.getElementById('exportTextarea');
     const tabMissing = document.getElementById('tabExportMissing');
+    const tabOwned = document.getElementById('tabExportOwned');
     const tabDups = document.getElementById('tabExportDuplicates');
     if (!modal || !textarea) return;
 
@@ -630,24 +692,17 @@ class CopaAlbumApp {
     textarea.value = this.generateExportText('missing');
     modal.classList.add('active');
 
-    if (tabMissing && tabDups) {
-      tabMissing.classList.add('active');
-      tabDups.classList.remove('active');
+    const updateTabs = (activeTab) => {
+      this.exportTab = activeTab;
+      if (tabMissing) tabMissing.classList.toggle('active', activeTab === 'missing');
+      if (tabOwned) tabOwned.classList.toggle('active', activeTab === 'owned');
+      if (tabDups) tabDups.classList.toggle('active', activeTab === 'duplicates');
+      textarea.value = this.generateExportText(activeTab);
+    };
 
-      tabMissing.onclick = () => {
-        this.exportTab = 'missing';
-        tabMissing.classList.add('active');
-        tabDups.classList.remove('active');
-        textarea.value = this.generateExportText('missing');
-      };
-
-      tabDups.onclick = () => {
-        this.exportTab = 'duplicates';
-        tabDups.classList.add('active');
-        tabMissing.classList.remove('active');
-        textarea.value = this.generateExportText('duplicates');
-      };
-    }
+    if (tabMissing) tabMissing.onclick = () => updateTabs('missing');
+    if (tabOwned) tabOwned.onclick = () => updateTabs('owned');
+    if (tabDups) tabDups.onclick = () => updateTabs('duplicates');
 
     const btnCopy = document.getElementById('btnCopyExport');
     if (btnCopy) {
@@ -666,7 +721,7 @@ class CopaAlbumApp {
     if (btnDownload) {
       btnDownload.onclick = () => {
         const album = this.getActiveAlbum();
-        const prefix = this.exportTab === 'missing' ? 'faltantes' : 'repetidas';
+        const prefix = this.exportTab === 'missing' ? 'faltantes' : (this.exportTab === 'owned' ? 'adquiridas' : 'repetidas');
         const filename = `${prefix}_${album ? album.id : 'copa'}.txt`;
         const blob = new Blob([textarea.value], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
@@ -767,7 +822,7 @@ class CopaAlbumApp {
     }
 
     document.querySelectorAll('.filter-chip').forEach(chip => {
-      if (chip.id === 'tabExportMissing' || chip.id === 'tabExportDuplicates' || chip.id === 'batchModeOwned' || chip.id === 'batchModeDuplicates') return;
+      if (chip.id === 'tabExportMissing' || chip.id === 'tabExportOwned' || chip.id === 'tabExportDuplicates' || chip.id === 'batchModeOwned' || chip.id === 'batchModeDuplicates') return;
       chip.addEventListener('click', () => {
         this.activeFilter = chip.dataset.filter;
         this.resetFilterChips();

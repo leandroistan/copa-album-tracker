@@ -9,7 +9,7 @@
   <title>Álbuns da Copa - Coleção de Figurinhas</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0F172A">
-  <link rel="stylesheet" href="style.css?v=21.0">
+  <link rel="stylesheet" href="style.css?v=22.0">
 </head>
 <body>
   <div id="app">
@@ -121,6 +121,7 @@
         </div>
         <div style="display: flex; gap: 8px; margin-bottom: 6px;">
           <button class="filter-chip active" id="tabExportMissing" style="flex: 1; text-align: center;">❌ Faltantes</button>
+          <button class="filter-chip" id="tabExportOwned" style="flex: 1; text-align: center;">✅ Tenho</button>
           <button class="filter-chip" id="tabExportDuplicates" style="flex: 1; text-align: center;">🔁 Repetidas</button>
         </div>
         <textarea id="exportTextarea" class="textarea-box" readonly style="min-height: 180px; font-family: monospace; font-size: 0.8rem;"></textarea>
@@ -150,7 +151,7 @@
 
   </div>
 
-  <script type="module" src="app.js?v=21.0"></script>
+  <script type="module" src="app.js?v=22.0"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
